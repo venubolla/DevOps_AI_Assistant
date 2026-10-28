@@ -1,0 +1,33 @@
+# Virtual environment
+venv/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+
+# Pytest
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+# macOS and generated archive files
+.DS_Store
+__MACOSX/
+*.py[cod]
+
+# Generated evaluation output and packaged archives
+data/ragas_results/
+*.zip
+
+# Tooling caches
+.ruff_cache/
+.mypy_cache/

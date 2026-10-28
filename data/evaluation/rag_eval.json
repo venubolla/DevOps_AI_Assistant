@@ -1,0 +1,257 @@
+[
+  {
+    "id": "eval_001",
+    "question": "What caused INC-1001?",
+    "expected_documents": [
+      "inc_1001.md"
+    ],
+    "expected_keywords": [
+      "PAYMENT_DB_TIMEOUT",
+      "payment-service",
+      "v2.4.1"
+    ],
+    "reference_answer": "INC-1001 was caused by a missing PAYMENT_DB_TIMEOUT environment variable in the production configuration for payment-service v2.4.1."
+  },
+  {
+    "id": "eval_002",
+    "question": "What configuration problem caused the payment service deployment failure?",
+    "expected_documents": [
+      "inc_1001.md"
+    ],
+    "expected_keywords": [
+      "PAYMENT_DB_TIMEOUT",
+      "production"
+    ],
+    "reference_answer": "The deployment failed because the PAYMENT_DB_TIMEOUT environment variable was missing from the production configuration."
+  },
+  {
+    "id": "eval_003",
+    "question": "How do I troubleshoot CrashLoopBackOff?",
+    "expected_documents": [
+      "crashloopbackoff.md"
+    ],
+    "expected_keywords": [
+      "kubectl",
+      "logs",
+      "describe",
+      "resources"
+    ],
+    "reference_answer": "Troubleshoot CrashLoopBackOff by inspecting pod status and events, checking container logs, describing the pod, and checking resource-related problems."
+  },
+  {
+    "id": "eval_004",
+    "question": "What should I check before rolling back a production deployment?",
+    "expected_documents": [
+      "rollback.md"
+    ],
+    "expected_keywords": [
+      "pre-check",
+      "deployment",
+      "rollback"
+    ],
+    "reference_answer": "Before a production rollback, verify the deployment and rollback conditions, perform the documented pre-checks, and confirm that rollback is appropriate."
+  },
+  {
+    "id": "eval_005",
+    "question": "How do I verify that a rollback was successful?",
+    "expected_documents": [
+      "rollback.md"
+    ],
+    "expected_keywords": [
+      "rollout",
+      "pods",
+      "logs"
+    ],
+    "reference_answer": "Verify the rollback by checking rollout status, confirming the expected pods are running, and checking logs for problems."
+  },
+  {
+    "id": "eval_006",
+    "question": "What is the relationship between CrashLoopBackOff and missing environment variables?",
+    "expected_documents": [
+      "crashloopbackoff.md",
+      "inc_1001.md"
+    ],
+    "expected_keywords": [
+      "environment",
+      "configuration",
+      "CrashLoopBackOff"
+    ],
+    "reference_answer": "A missing environment variable can cause an application to fail during startup, which can result in its Kubernetes pod repeatedly restarting and entering CrashLoopBackOff."
+  },
+  {
+    "id": "eval_007",
+    "question": "How long did customers experience failed payment requests during INC-1001?",
+    "expected_documents": [
+      "inc_1001.md"
+    ],
+    "expected_keywords": [
+      "12 minutes",
+      "failed payment requests"
+    ],
+    "reference_answer": "Customers experienced failed payment requests for approximately 12 minutes."
+  },
+  {
+    "id": "eval_008",
+    "question": "Which payment service version failed during the production deployment?",
+    "expected_documents": [
+      "inc_1001.md"
+    ],
+    "expected_keywords": [
+      "v2.4.1",
+      "production"
+    ],
+    "reference_answer": "Payment Service version v2.4.1 failed during the production deployment."
+  },
+  {
+    "id": "eval_009",
+    "question": "From which version to which version was the payment service rolled back?",
+    "expected_documents": [
+      "inc_1001.md"
+    ],
+    "expected_keywords": [
+      "v2.4.1",
+      "v2.4.0"
+    ],
+    "reference_answer": "The deployment was rolled back from v2.4.1 to v2.4.0."
+  },
+  {
+    "id": "eval_010",
+    "question": "What should deployment validation check before a production rollout?",
+    "expected_documents": [
+      "inc_1001.md"
+    ],
+    "expected_keywords": [
+      "required environment variables",
+      "production rollout"
+    ],
+    "reference_answer": "Deployment validation should verify that required environment variables are available before a production rollout."
+  },
+  {
+    "id": "eval_011",
+    "question": "Which kubectl command shows pods in a namespace when troubleshooting CrashLoopBackOff?",
+    "expected_documents": [
+      "crashloopbackoff.md"
+    ],
+    "expected_keywords": [
+      "kubectl get pods",
+      "namespace"
+    ],
+    "reference_answer": "Run kubectl get pods -n <namespace> to inspect pod status in the namespace."
+  },
+  {
+    "id": "eval_012",
+    "question": "How can I inspect logs from the previous crashed container?",
+    "expected_documents": [
+      "crashloopbackoff.md"
+    ],
+    "expected_keywords": [
+      "kubectl logs",
+      "--previous"
+    ],
+    "reference_answer": "Run kubectl logs <pod-name> -n <namespace> --previous to inspect logs from the failed previous container."
+  },
+  {
+    "id": "eval_013",
+    "question": "What resource-related signals should I look for during CrashLoopBackOff troubleshooting?",
+    "expected_documents": [
+      "crashloopbackoff.md"
+    ],
+    "expected_keywords": [
+      "CPU",
+      "memory",
+      "OOMKilled"
+    ],
+    "reference_answer": "Inspect CPU and memory requests and limits, and look for OOMKilled, insufficient resources, or invalid resource configuration."
+  },
+  {
+    "id": "eval_014",
+    "question": "When should a CrashLoopBackOff problem be escalated to the application owner?",
+    "expected_documents": [
+      "crashloopbackoff.md"
+    ],
+    "expected_keywords": [
+      "startup",
+      "secrets",
+      "database connectivity"
+    ],
+    "reference_answer": "Escalate when startup repeatedly fails, required secrets are unavailable, database connectivity fails, or the issue persists after configuration correction."
+  },
+  {
+    "id": "eval_015",
+    "question": "Which kubectl command lists deployment rollout history before a rollback?",
+    "expected_documents": [
+      "rollback.md"
+    ],
+    "expected_keywords": [
+      "kubectl rollout history",
+      "deployment"
+    ],
+    "reference_answer": "Run kubectl rollout history deployment/<deployment-name> to identify deployment history."
+  },
+  {
+    "id": "eval_016",
+    "question": "What should be recorded after a production rollback?",
+    "expected_documents": [
+      "rollback.md"
+    ],
+    "expected_keywords": [
+      "deployment ID",
+      "failed version",
+      "timestamp",
+      "incident ID"
+    ],
+    "reference_answer": "Record the deployment ID, failed version, rollback version, reason, timestamp, and incident ID."
+  },
+  {
+    "id": "eval_017",
+    "question": "Should an AI assistant automatically roll back a production deployment?",
+    "expected_documents": [
+      "rollback.md"
+    ],
+    "expected_keywords": [
+      "human approval",
+      "automatically"
+    ],
+    "reference_answer": "Rollback should not be performed automatically by an AI assistant without explicit human approval."
+  },
+  {
+    "id": "eval_018",
+    "question": "What conditions can justify considering a production rollback?",
+    "expected_documents": [
+      "rollback.md"
+    ],
+    "expected_keywords": [
+      "critical errors",
+      "error rate",
+      "unavailable",
+      "startup fails"
+    ],
+    "reference_answer": "Consider rollback when a deployment introduces critical errors, the error rate increases significantly, the service becomes unavailable, startup fails, database compatibility issues occur, or a critical regression is confirmed."
+  },
+  {
+    "id": "eval_019",
+    "question": "What should be checked before initiating a rollback?",
+    "expected_documents": [
+      "rollback.md"
+    ],
+    "expected_keywords": [
+      "affected service",
+      "current deployment version",
+      "previous stable version",
+      "active incidents"
+    ],
+    "reference_answer": "Confirm the affected service, current deployment version, previous stable version, active incidents, and that rollback is technically safe."
+  },
+  {
+    "id": "eval_020",
+    "question": "What should remain open after a rollback until the service is healthy?",
+    "expected_documents": [
+      "rollback.md"
+    ],
+    "expected_keywords": [
+      "incident",
+      "service health"
+    ],
+    "reference_answer": "The incident should remain open until service health is confirmed."
+  }
+]

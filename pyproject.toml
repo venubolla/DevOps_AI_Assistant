@@ -1,0 +1,23 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-m 'not integration'"
+markers = [
+    "integration: requires external services such as PostgreSQL (run with -m integration)",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+extend-exclude = ["venv", "data"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B"]
+ignore = [
+    "E402",  # scripts/tests bootstrap sys.path before importing app modules
+    "B008",  # FastAPI Depends() in argument defaults
+    "B905",  # zip(strict=) would change runtime behaviour of existing code
+]
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/calibrate_relevance_threshold.py" = ["F841", "E501"]
