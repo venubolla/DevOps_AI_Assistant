@@ -25,9 +25,6 @@ jobs:
         run: ruff check .
 
       - name: Run tests
-        run: pytest
-
-      - name: Run tests
         env:
           DATABASE_URL: postgresql+psycopg://devops_user:devops_password@localhost:5433/devops_ai
         run: pytest
